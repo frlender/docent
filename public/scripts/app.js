@@ -4,26 +4,29 @@
 
 var app = angular.module('docent', ['idxCtrls'])
 
-// Backbone's logic
-var CountModel = Backbone.Model.extend({
-  defaults:{
-    count:0,
+
+app.factory('countUtil',function(){
+  var util = {}
+  // Backbone's logic
+  util.CountModel = Backbone.Model.extend({
+    defaults:{
+      count:0,
+    }
+  });
+  util.validateCount = function(count){
+    count = parseInt(count)
+    if(isNaN(count)) return 0;
+    else return count;
   }
-})
+  return util;
+});
 
-var validateCount = function(count){
-  count = parseInt(count)
-  if(isNaN(count)) return 0;
-  else return count;
-}
-
-
-app.directive('genericCount',function(){
+app.directive('genericCount',['countUtil',function(util){
   return {
     restrict: 'A',
     link: function (scope, element) {
-      var initCount = validateCount(scope.item.count);
-      var countModel = new CountModel();
+      var initCount = util.validateCount(scope.item.count);
+      var countModel = new util.CountModel();
       countModel.set('count',initCount)
       var view = new Barista.Views.GenericCountView({
         el: element,
@@ -35,8 +38,8 @@ app.directive('genericCount',function(){
         png: false
       });
       scope.$watch('item.count',function(newVal){
-        countModel.set('count',validateCount(newVal));
+        countModel.set('count',util.validateCount(newVal));
       });
     }
   };
-})
+}]);

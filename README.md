@@ -1,2 +1,2 @@
 # docent
-IThis is a docent
+This is a docent.
