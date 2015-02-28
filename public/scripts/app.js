@@ -27,7 +27,6 @@ app.directive('genericCount',['countUtil',function(util){
     link: function (scope, element) {
       var initCount = util.validateCount(scope.item.count);
       var countModel = new util.CountModel();
-      countModel.set('count',initCount)
       var view = new Barista.Views.GenericCountView({
         el: element,
         label: scope.item.name,
@@ -37,6 +36,7 @@ app.directive('genericCount',['countUtil',function(util){
         plot_height: 70,
         png: false
       });
+      countModel.set('count',initCount)
       scope.$watch('item.count',function(newVal){
         countModel.set('count',util.validateCount(newVal));
       });

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="libraries/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="libraries/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="Barista/barista.main.min.css">
     <!-- libraries -->
     <script src="libraries/jquery/jquery.min.js"></script>
     <script src="libraries/string/lib/string.min.js"></script>
@@ -20,10 +21,9 @@
     <script src="scripts/controllers.js">  </script>
   </head>
   <body ng-controller="main">
-    <div>set the count of the first item:
+    <div style="margin-bottom:2em">set the count of the first item:
       <input ng-model="groups[0].counts[0].count">
     </div>
     <div ng-repeat="group in groups" ng-include="'count.html'" class="col-md-2"></div>
-    <div id="box"></div>
   </body>
 </html>

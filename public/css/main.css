@@ -1,0 +1,71 @@
+/**************
+ * Base fonts *
+ **************/
+.docentHeader {
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-size: 2.12706rem;
+  /*color: '#0B609A';*/
+}
+
+.docentHeader:before {
+  content: '';
+  position: absolute;
+  border-top: 10px solid;
+  width: 100%;
+  height: 10px;
+  top: -10px;
+}
+
+.docentHeader:after {
+  content: '';
+  position: absolute;
+  border-bottom: 2px solid;
+  min-width: 100%;
+  min-height: 2px;
+  left: 15px;
+  bottom: -10px;
+}
+
+/********************
+ * Institute styles *
+ ********************/
+.broad::before, .broad:after {
+  color: #0B609A;
+}
+
+.oregon::before, .oregon::after {
+  color: #66cc33;
+}
+
+.harvard::before, .harvard::after {
+  color: #C90016;
+}
+
+.irvine::before, .irvine::after {
+  color: #ffd200
+}
+
+.icahn::before, .icahn::after {
+  color: #00AAED;
+}
+
+
+
+/*
+***********
+card styles
+***********
+*/
+.card{
+    margin-bottom:1.25em;
+    padding-top: 5px;
+    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12),0 1px 1px 0 rgba(0,0,0,.24);
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.card:hover{
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,.19),0 6px 3px 0 rgba(0,0,0,.23);
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
