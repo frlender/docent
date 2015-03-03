@@ -23,4 +23,7 @@ html(lang='en', ng-app='docent')
   body(ng-controller='main')
     div(style='margin-bottom:2em') set the count of the first item:
       input(ng-model="groups[0].counts[0].count")
+      button.btn(ng-click="switchData()") change $scope.groups
+      button.btn(ng-click="updateData()") change individual count
+      button.btn(ng-click="removeItem()") remove a count
     .col-md-2(ng-repeat="group in groups" ng-include="'count.html'")
