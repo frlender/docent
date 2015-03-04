@@ -1,18 +1,24 @@
 /**************
  * Base fonts *
  **************/
-.docentHeader {
+.groupHeader {
+  border-style: solid;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-top-width: 10px;
+  padding-bottom: 5px;
+
   font-family: 'Open Sans';
   font-weight: 300;
   font-size: 2.12706rem;
-  /*color: '#0B609A';*/
+  
 }
 
 .docentHeader:before {
   content: '';
   position: absolute;
   border-top: 10px solid;
-  width: 100%;
+  width: 90%;
   height: 10px;
   top: -10px;
 }
@@ -21,7 +27,7 @@
   content: '';
   position: absolute;
   border-bottom: 2px solid;
-  min-width: 100%;
+  min-width: 90%;
   min-height: 2px;
   left: 15px;
   bottom: -10px;

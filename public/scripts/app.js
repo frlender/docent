@@ -31,8 +31,8 @@ app.directive('genericCount',['countUtil',function(util){
         el: element,
         label: scope.item.name,
         model: countModel,
-        fg_color: '#0B609A',
-        top_bar_color: 'blue',
+        fg_color: scope.$parent.group.color,
+        top_bar_color: 'white',
         plot_height: 70,
         png: false
       });
