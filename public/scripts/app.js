@@ -34,7 +34,8 @@ app.directive('genericCount',['countUtil',function(util){
         fg_color: scope.$parent.group.color,
         top_bar_color: 'white',
         plot_height: 70,
-        png: false
+        png: false,
+        span_class: ""
       });
       countModel.set('count',initCount)
       scope.$watch('item.count',function(newVal){
@@ -42,4 +43,20 @@ app.directive('genericCount',['countUtil',function(util){
       });
     }
   };
+}])
+.directive('packery',['$timeout',function($timeout){
+  return {
+    restrict: 'A',
+    link: function (scope, element, attr) {
+      if (scope.$last) {
+          $timeout(function () {
+            var pckry = new Packery( '#container', {
+              // options
+              itemSelector: '.group',
+              gutter: 15
+            });
+          });
+        }
+      }
+    }
 }]);

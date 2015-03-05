@@ -1,6 +1,15 @@
 /**************
  * Base fonts *
  **************/
+ body{
+    text-align:center;
+ }
+
+#container{
+  text-align:left;
+  left:7%;
+}
+
 .groupHeader {
   border-style: solid;
   border-left-width: 0;
@@ -11,10 +20,18 @@
   font-family: 'Open Sans';
   font-weight: 300;
   font-size: 2.12706rem;
-  
+
 }
 
-.docentHeader:before {
+.group{
+  width:20%;
+  margin:auto;
+  /*display:inline-block;*/
+  /*vertical-align:top*/
+}
+
+
+/*.docentHeader:before {
   content: '';
   position: absolute;
   border-top: 10px solid;
@@ -31,7 +48,7 @@
   min-height: 2px;
   left: 15px;
   bottom: -10px;
-}
+}*/
 
 /********************
  * Institute styles *

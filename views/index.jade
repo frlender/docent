@@ -9,10 +9,11 @@ html(lang='en', ng-app='docent')
     link(rel='stylesheet', href='css/main.css')
     link(rel='stylesheet', href='Barista/barista.main.min.css')     
     // libraries 
-    script(src='libraries/jquery/jquery.min.js')
+    script(src='libraries/jquery/dist/jquery.min.js')
     script(src='libraries/string/lib/string.min.js')
     script(src='libraries/underscore/underscore-min.js')
     script(src='libraries/angular/angular.js')
+    script(src='libraries/packery/dist/packery.pkgd.min.js')
     // barista dependancy 
     script(src='Barista/barista.main.min.js')
 
@@ -26,4 +27,5 @@ html(lang='en', ng-app='docent')
       button.btn(ng-click="switchData()") change $scope.groups
       button.btn(ng-click="updateData()") change individual count
       button.btn(ng-click="removeItem()") remove a count
-    .col-sm-3(ng-repeat="group in groups" ng-include="'count.html'")
+    div(id="container")
+      div(ng-repeat="group in groups" class="group" ng-include="'count.html'" packery)

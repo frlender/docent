@@ -12,9 +12,11 @@
     "backbone": "latest",
     "font-awesome": "4.2.0",
     "string": "2.2.0",
+    "jquery":"latest",
     "angular-smart-table": "1.4.5",
     "angular-bootstrap-toggle-switch": "0.5.x",
-    "angular-masonry":"0.11.0"
+    "angular-masonry":"0.11.0",
+    "packery":"latest"
   },
   "resolutions": {
     "bootstrap": "~3.3.0"
