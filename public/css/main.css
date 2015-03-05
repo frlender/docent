@@ -26,6 +26,12 @@
   font-family: 'Open Sans';
  }
 
+ .sub-title{
+  font-size:0.3em;
+  font-style: italic;
+  vertical-align: 85%;
+ }
+
  .btn-modern{
   background-color: transparent;
   border-style: solid;
