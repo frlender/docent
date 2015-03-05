@@ -26,7 +26,7 @@ var services = angular.module('services', [])
   			{color:"#0B609A"},
   			"Broad Institute, LINCS Center for Transcriptomics":{color:"#0B609A"},
   			"Columbia University Health Sciences":{color:"#c4d8e2"},
-  			"Harvard Medical School, HMS LINCS":{color:"#A51C30"},
+  			"Harvard Medical School, HMS LINCS":{color:"#C90016"},
   			"Icahn School of Medicine at Mount Sinai, Drug Toxicity Signature Generation Center":
   			{color:"#D80B8C"},
   			"Oregon Health and Science University, MEP LINCS":{color:"#66cc33"},

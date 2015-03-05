@@ -5,9 +5,63 @@
     text-align:center;
  }
 
+
+.top-bar{
+  position: fixed;
+  width: 100%;
+  top: 0%;
+  z-index: 999;
+  padding-bottom: 10px;
+  background-color: rgba(255,255,255,0.9);
+  border-bottom-style: dotted;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
+}
+
+ .title{
+  font-size: 3em;
+  /* font-weight: bold; */
+  text-align: left;
+  margin-left: 8%;
+  font-family: 'Open Sans';
+ }
+
+ .btn-modern{
+  background-color: transparent;
+  border-style: solid;
+  border-radius: 0;
+  border-width: 1.5px;
+  border-color: black;
+  padding:2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+ }
+
+ button:hover{
+  /*background-image:url("img/rainbow.png");
+  background-size:200px;
+  background-position: center;*/
+  background-color: rgba(0,0,0,0.7);
+  border-color:white;
+  color:white;
+ }
+
+ .btn-selected{
+  background-color: rgba(0,0,0,0.7);
+  border-color:white;
+  color:white;
+ }
+
+ .btn-right{
+  margin-left: 1em;
+ }
+
 #container{
   text-align:left;
   left:7%;
+  top:100px;
 }
 
 .groupHeader {
@@ -30,65 +84,3 @@
   /*vertical-align:top*/
 }
 
-
-/*.docentHeader:before {
-  content: '';
-  position: absolute;
-  border-top: 10px solid;
-  width: 90%;
-  height: 10px;
-  top: -10px;
-}
-
-.docentHeader:after {
-  content: '';
-  position: absolute;
-  border-bottom: 2px solid;
-  min-width: 90%;
-  min-height: 2px;
-  left: 15px;
-  bottom: -10px;
-}*/
-
-/********************
- * Institute styles *
- ********************/
-.broad::before, .broad:after {
-  color: #0B609A;
-}
-
-.oregon::before, .oregon::after {
-  color: #66cc33;
-}
-
-.harvard::before, .harvard::after {
-  color: #C90016;
-}
-
-.irvine::before, .irvine::after {
-  color: #ffd200
-}
-
-.icahn::before, .icahn::after {
-  color: #00AAED;
-}
-
-
-
-/*
-***********
-card styles
-***********
-*/
-.card{
-    margin-bottom:1.25em;
-    padding-top: 5px;
-    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12),0 1px 1px 0 rgba(0,0,0,.24);
-    -webkit-transition: all 0.2s;
-    transition: all 0.2s;
-}
-.card:hover{
-    box-shadow: 0 10px 10px 0 rgba(0,0,0,.19),0 6px 3px 0 rgba(0,0,0,.23);
-    -webkit-transition: all 0.2s;
-    transition: all 0.2s;
-}

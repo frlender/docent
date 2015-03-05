@@ -22,11 +22,12 @@
     <script src="scripts/controllers.js">  </script>
   </head>
   <body ng-controller="main">
-    <div style="margin-bottom:2em">set the count of the first item:
-      <input ng-model="groups[0].counts[0].count">
-      <button ng-click="switchData()" class="btn">change $scope.groups</button>
-      <button ng-click="updateData()" class="btn">change individual count</button>
-      <button ng-click="removeItem()" class="btn">remove a count</button>
+    <div class="top-bar">
+      <div class="title">Docent</div>
+      <div>
+        <button class="btn-modern btn-selected">Center View</button>
+        <button class="btn-modern btn-right">Assay View</button>
+      </div>
     </div>
     <div id="container">
       <div ng-repeat="group in groups" ng-include="'count.html'" packery class="group"></div>

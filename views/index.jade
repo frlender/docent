@@ -22,10 +22,16 @@ html(lang='en', ng-app='docent')
     script(src='scripts/app.js')
     script(src='scripts/controllers.js')   
   body(ng-controller='main')
-    div(style='margin-bottom:2em') set the count of the first item:
-      input(ng-model="groups[0].counts[0].count")
-      button.btn(ng-click="switchData()") change $scope.groups
-      button.btn(ng-click="updateData()") change individual count
-      button.btn(ng-click="removeItem()") remove a count
+    //- //test div
+    //- div(style='margin-bottom:2em') set the count of the first item:
+    //-   input(ng-model="groups[0].counts[0].count")
+    //-   button.btn(ng-click="switchData()") change $scope.groups
+    //-   button.btn(ng-click="updateData()") change individual count
+    //-   button.btn(ng-click="removeItem()") remove a count
+    .top-bar
+      .title Docent
+      div
+        button.btn-modern.btn-selected Center View
+        button.btn-modern.btn-right Assay View
     div(id="container")
       div(ng-repeat="group in groups" class="group" ng-include="'count.html'" packery)
