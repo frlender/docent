@@ -1,12 +1,18 @@
 angular.module('idxCtrls', ["services"])
-.controller('main',['$scope','initialize',function($scope,initialize) {
-	var altData =  [
-		{name:"Oregon Health and Science University",
-			counts:[{name:'a',count:98998},{name:'b',count:6665}]},
-		{name:"Broad Institute Transcriptomics",
-			counts:[{name:'de',count:77},{name:'ff',count:17}]}
-		];
-	initialize.then(function(groups){
+.controller('main',['$scope',function($scope){
+	$scope.view = "center";
+	$scope.setView = function(view){
+		$scope.view = view;
+	}
+}])
+.controller('centerView',['$scope','initialize',function($scope,initialize) {
+	// var altData =  [
+	// 	{name:"Oregon Health and Science University",
+	// 		counts:[{name:'a',count:98998},{name:'b',count:6665}]},
+	// 	{name:"Broad Institute Transcriptomics",
+	// 		counts:[{name:'de',count:77},{name:'ff',count:17}]}
+	// 	];
+	initialize('centerView').then(function(groups){
 		$scope.groups = groups;
 	});
 	// $scope.groups = [
@@ -15,17 +21,22 @@ angular.module('idxCtrls', ["services"])
 	// 	{name:"Broad Institute Transcriptomics",
 	// 		counts:[{name:'de',count:5},{name:'ff',count:7}]}
 	// 	];
-	$scope.switchData = function(){
-		$scope.groups = altData;
-	}
-	$scope.updateData = function(){
-		for(i in _.range($scope.groups.length)){
-			for(j in _.range($scope.groups[i].counts.length)){
-				$scope.groups[i].counts[j].count = altData[i].counts[j].count;
-			}
-		}
-	}
-	$scope.removeItem = function(){
-		$scope.groups[0].counts.shift();
-	}
+	// $scope.switchData = function(){
+	// 	$scope.groups = altData;
+	// }
+	// $scope.updateData = function(){
+	// 	for(i in _.range($scope.groups.length)){
+	// 		for(j in _.range($scope.groups[i].counts.length)){
+	// 			$scope.groups[i].counts[j].count = altData[i].counts[j].count;
+	// 		}
+	// 	}
+	// }
+	// $scope.removeItem = function(){
+	// 	$scope.groups[0].counts.shift();
+	// }
+}])
+.controller('assayView',['$scope','initialize',function($scope,initialize) {
+	initialize('assayView').then(function(groups){
+		$scope.groups = groups;
+	});
 }]);

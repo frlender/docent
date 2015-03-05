@@ -2,7 +2,23 @@
 
 /* App Module */
 
-var app = angular.module('docent', ['idxCtrls'])
+var app = angular.module('docent', ['idxCtrls','ngRoute'])
+
+app.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/centerView', {
+        templateUrl: 'view.html',
+        controller: 'centerView'
+      }).
+      when('/assayView', {
+        templateUrl: 'view.html',
+        controller: 'assayView'
+      }).
+      otherwise({
+        redirectTo: '/centerView'
+      });
+}]);
 
 
 app.factory('countUtil',function(){
@@ -53,7 +69,7 @@ app.directive('genericCount',['countUtil',function(util){
             var pckry = new Packery( '#container', {
               // options
               itemSelector: '.group',
-              gutter: 15
+              gutter: 20
             });
           });
         }

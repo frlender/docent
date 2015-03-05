@@ -16,7 +16,8 @@
     "angular-smart-table": "1.4.5",
     "angular-bootstrap-toggle-switch": "0.5.x",
     "angular-masonry":"0.11.0",
-    "packery":"latest"
+    "packery":"latest",
+    "normalize-css":"3.0.2"
   },
   "resolutions": {
     "bootstrap": "~3.3.0"

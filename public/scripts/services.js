@@ -1,55 +1,20 @@
 var services = angular.module('services', [])
-.factory('mapProvider',[function(){
-  return {
-  	'centers':{
-  		'nameKey':'centerName',
-  		'countName':{
-			antibodyCount: "Antibodies",
-			celllineCount: "Cell Lines",
-			differentiatedcellCount: "Differentiated Cell Lines",
-			geneCount: "Genes",
-			ipscCount: "iPSCs",
-			kinaseCount: "Kinases",
-			phosphoproteinCount: "Phosphoprotein ",
-			primarycellCount: "Primary Cell Lines",
-			proteinCount: "Proteins",
-			rnaiCount: "RNAis",
-			smallmoleculeCount: "Small Molecules",
-			assayCount: "Assays",
-			cdnaCount: "cDNAs",
-			shrnaCount: "shRNAs"
-  		},
-  		'meta':{
-  			"Arizona State Universtity, Cellarium":{color:"#990033"},
-  			"Broad Institute, Center for the Science of Therapeutics":{color:"#0B609A"},
-  			"Broad Institute, LINCS Center Proteomic Characterization Center for Signaling and Epigenetics":
-  			{color:"#0B609A"},
-  			"Broad Institute, LINCS Center for Transcriptomics":{color:"#0B609A"},
-  			"Columbia University Health Sciences":{color:"#c4d8e2"},
-  			"Harvard Medical School, HMS LINCS":{color:"#C90016"},
-  			"Icahn School of Medicine at Mount Sinai, Drug Toxicity Signature Generation Center":
-  			{color:"#D80B8C"},
-  			"Oregon Health and Science University, MEP LINCS":{color:"#66cc33"},
-  			"University of California, Irvine  NeuroLINCS":{color:"#ffd200"},
-  			"Yale University":{color:"#0F4D92"}
-  		}
-  	}
-  }
-}])
-.factory('transform',['mapProvider',function(mapProvider){
-	return function(inputGroups,mapKey){
-		var map = mapProvider[mapKey];
+
+services.factory('transform',[function(){
+	// transform results from Miami API to groups structure.
+	return function(inputGroups,map,countNameMap,groupNameFun){
+		// groupNameFun applies some transformation on groupName
 		var nameKey = map.nameKey;
 		var groups = _.map(inputGroups,function(inputGroup){
 			var group = {};
 			var groupName = inputGroup[nameKey]
-			group.name = groupName;
+			group.name = groupNameFun(groupName);
 			group.color = map.meta[groupName].color;
 			group.counts = [];
 			for(var key in inputGroup){
 				if(key!=nameKey){
 					var count = {};
-					count.name = map.countName[key];
+					count.name = countNameMap[key];
 					count.count = inputGroup[key];
 					group.counts.push(count);
 				}
@@ -59,17 +24,55 @@ var services = angular.module('services', [])
 		return groups;
 	}
 }])
-.factory('initialize',['transform','$q','$http',
-	function(transform,$q,$http){
+.factory('assayMap',['mapProvider',function(mapProvider){
+	// modify assay map so that transform function could be applied to it.
 
-	var deferred = $q.defer();
-	var url = "http://life.ccs.miami.edu/life/api/centerview?searchTerm=*:*&minCount=1"
-	$http.get(url)
-		.success(function(inputGroups){
-			var key = 'centers';
-			var groups = transform(inputGroups[key],key);
-			deferred.resolve(groups);
-	});
+	// sinai cyan, OHSU green, sinai magenta, columbia, irvine yellow
+	// yale blue, ASU red, Broad blue, Harvard red
+	var colorLibrary = ['#00AEEF','#66cc33','#D80B8C', "#c4d8e2", "#ffd200",
+		"#0F4D92", "#990033", "#0B609A", "#C90016"];
+	var centerMap = mapProvider.centers;
+	var assayMap = mapProvider.assays;
 
-	return deferred.promise;
+	var colorCursor = 0;
+	for(var assayName in assayMap.meta){
+		if("center" in assayMap.meta[assayName]){
+			var assayCenter = assayMap.meta[assayName].center;
+			assayMap.meta[assayName].color = centerMap.meta[assayCenter].color;
+		}else{
+			assayMap.meta[assayName].color = colorLibrary[colorCursor%colorLibrary.length];
+			colorCursor = colorCursor + 1;
+		}
+	}
+	return assayMap;
+}])
+.factory('initialize',['transform','$q','$http','mapProvider','assayMap',
+	function(transform,$q,$http,mapProvider,assayMap){
+
+	return function(view){
+		var deferred = $q.defer();
+		if(view=='centerView'){
+			var url = "http://life.ccs.miami.edu/life/api/centerview?searchTerm=*:*&minCount=1"
+			$http.get(url)
+				.success(function(inputGroups){
+				var key = 'centers';
+				var groups = transform(inputGroups[key],mapProvider[key],
+					mapProvider.countName, _.identity);
+				deferred.resolve(groups);
+			});
+		}else{
+			var url = "http://life.ccs.miami.edu/life/api/assayview?searchTerm=*:*&minCount=1"
+			var capitalize = function(str){
+				return str.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+			}
+			$http.get(url)
+				.success(function(inputGroups){
+				var key = 'assays';
+				var groups = transform(inputGroups[key],assayMap,
+					mapProvider.countName, capitalize);
+				deferred.resolve(groups);
+			});
+		}
+		return deferred.promise;
+	}
 }]);
