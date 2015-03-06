@@ -50,30 +50,31 @@ services.factory('transform',[function(){
 	function(transform,$q,$http,mapProvider,assayMap){
 	// To cache initialize results? or delay animation ?
 
-	return function(view){
-		var deferred = $q.defer();
-		if(view=='centerView'){
-			var url = "http://life.ccs.miami.edu/life/api/centerview?searchTerm=*:*&minCount=1"
-			$http.get(url)
-				.success(function(inputGroups){
-				var key = 'centers';
-				var groups = transform(inputGroups[key],mapProvider[key],
-					mapProvider.countName, _.identity);
-				deferred.resolve(groups);
-			});
-		}else{
-			var url = "http://life.ccs.miami.edu/life/api/assayview?searchTerm=*:*&minCount=1"
-			var capitalize = function(str){
-				return str.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
-			}
-			$http.get(url)
-				.success(function(inputGroups){
-				var key = 'assays';
-				var groups = transform(inputGroups[key],assayMap,
-					mapProvider.countName, capitalize);
-				deferred.resolve(groups);
-			});
+		var centerDeferred = $q.defer();
+		var url = "http://life.ccs.miami.edu/life/api/centerview?searchTerm=*:*&minCount=1"
+		$http.get(url)
+			.success(function(inputGroups){
+			var key = 'centers';
+			var groups = transform(inputGroups[key],mapProvider[key],
+				mapProvider.countName, _.identity);
+			centerDeferred.resolve(groups);
+		});
+
+		var assayDeferred = $q.defer(); 
+		var url = "http://life.ccs.miami.edu/life/api/assayview?searchTerm=*:*&minCount=1"
+		var capitalize = function(str){
+			return str.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
 		}
-		return deferred.promise;
-	}
+		$http.get(url)
+			.success(function(inputGroups){
+			var key = 'assays';
+			var groups = transform(inputGroups[key],assayMap,
+				mapProvider.countName, capitalize);
+			assayDeferred.resolve(groups);
+			console.log('assayDeferred.resolve');
+		});
+
+		var res = {centers:centerDeferred.promise,
+			assays:assayDeferred.promise};
+		return res;
 }]);

@@ -1,6 +1,11 @@
 angular.module('idxCtrls', ["services"])
-.controller('main',['$scope',function($scope){
-	$scope.view = "center";
+.controller('main',['$scope','$location',
+	function($scope,$location){
+	// in case user refreshes page at assay route.
+	if($location.path()=="/centerView")
+		$scope.view = "center";
+	else
+		$scope.view = "assay";
 	$scope.setView = function(view){
 		$scope.view = view;
 	}
@@ -12,7 +17,7 @@ angular.module('idxCtrls', ["services"])
 	// 	{name:"Broad Institute Transcriptomics",
 	// 		counts:[{name:'de',count:77},{name:'ff',count:17}]}
 	// 	];
-	initialize('centerView').then(function(groups){
+	initialize.centers.then(function(groups){
 		$scope.groups = groups;
 		$scope.containerId = 'centerContainer';
 	});
@@ -37,7 +42,7 @@ angular.module('idxCtrls', ["services"])
 	// }
 }])
 .controller('assayView',['$scope','initialize',function($scope,initialize) {
-	initialize('assayView').then(function(groups){
+	initialize.assays.then(function(groups){
 		$scope.groups = groups;
 		$scope.containerId = 'assayContainer';
 	});
