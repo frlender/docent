@@ -14,6 +14,7 @@ angular.module('idxCtrls', ["services"])
 	// 	];
 	initialize('centerView').then(function(groups){
 		$scope.groups = groups;
+		$scope.containerId = 'centerContainer';
 	});
 	// $scope.groups = [
 	// 	{name:"Oregon Health and Science University",
@@ -38,5 +39,6 @@ angular.module('idxCtrls', ["services"])
 .controller('assayView',['$scope','initialize',function($scope,initialize) {
 	initialize('assayView').then(function(groups){
 		$scope.groups = groups;
+		$scope.containerId = 'assayContainer';
 	});
 }]);

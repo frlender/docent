@@ -48,6 +48,7 @@ services.factory('transform',[function(){
 }])
 .factory('initialize',['transform','$q','$http','mapProvider','assayMap',
 	function(transform,$q,$http,mapProvider,assayMap){
+	// To cache initialize results? or delay animation ?
 
 	return function(view){
 		var deferred = $q.defer();

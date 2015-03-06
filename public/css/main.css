@@ -32,19 +32,7 @@
   vertical-align: 85%;
  }
 
-/* button.btn-modern{
-  background-color: transparent;
-  border-style: solid;
-  border-radius: 0;
-  border-width: 1.5px;
-  border-color: black;
-
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
- }
-*/
+/*button style*/
  a.btn-modern{
   background-color: transparent;
   border-style: solid;
@@ -61,24 +49,9 @@
   text-decoration: none;
  }
 
- /*button:hover{
-  background-image:url("img/rainbow.png");
-  background-size:200px;
-  background-position: center;
-  background-color: rgba(0,0,0,0.7);
-  border-color:white;
-  color:white;
- }
-*/
-
-/*button.btn-selected{
-  background-color: rgba(0,0,0,0.7);
-  border-color:white;
-  color:white;
- }*/
 
  a.btn-selected{
-  text-decoration: none !important; 
+  text-decoration: none !important;
   color:white !important;
   background-color: rgba(0,0,0,0.7);
   border-color:white;
@@ -88,7 +61,7 @@
 
 
  a:hover, a:focus{
-  text-decoration: none !important; 
+  text-decoration: none !important;
   color:white !important;
   background-color: rgba(0,0,0,0.7);
   border-color:white;
@@ -98,7 +71,7 @@
   margin-left: 2%;
  }
 
-#container{
+.container{
   text-align:left;
   top:100px;
 }
@@ -127,3 +100,28 @@
   /*vertical-align:top*/
 }
 
+/*Start ng-animation on ng-repeat group class*/
+.wrapper.ng-enter, .wrapper.ng-move {
+  -webkit-transition:2s linear all;
+  -moz-transition:2s linear all;
+  -o-transition:2s linear all;
+  transition:2s linear all;
+  opacity:0;
+}
+
+.wrapper.ng-enter.ng-enter-active,
+.wrapper.ng-move.ng-move-active {
+  opacity:1;
+}
+
+.wrapper.ng-leave {
+  -webkit-transition:0.5s linear all;
+  -moz-transition:0.5s linear all;
+  -o-transition:0.5s linear all;
+  transition:0.5s linear all;
+  opacity:1;
+}
+
+.wrapper.ng-leave.ng-leave-active{
+  opacity:0;
+}

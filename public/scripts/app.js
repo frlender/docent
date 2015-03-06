@@ -2,7 +2,7 @@
 
 /* App Module */
 
-var app = angular.module('docent', ['idxCtrls','ngRoute'])
+var app = angular.module('docent', ['idxCtrls','ngRoute','ngAnimate'])
 
 app.config(['$routeProvider',
   function($routeProvider) {
@@ -50,6 +50,7 @@ app.directive('genericCount',['countUtil',function(util){
         fg_color: scope.$parent.group.color,
         top_bar_color: 'white',
         plot_height: 70,
+        duration: 800,
         png: false,
         span_class: ""
       });
@@ -65,8 +66,12 @@ app.directive('genericCount',['countUtil',function(util){
     restrict: 'A',
     link: function (scope, element, attr) {
       if (scope.$last) {
+        // dynamic containerId is necessary for animation because
+        // during animation there is time when both the container for
+        // the center view and the container for the assay view exists
+          var containerId = scope.$parent.$parent.containerId;
           $timeout(function () {
-            var pckry = new Packery( '#container', {
+            var pckry = new Packery( '#'+containerId, {
               // options
               itemSelector: '.group',
               gutter: 20
