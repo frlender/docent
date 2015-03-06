@@ -2,10 +2,10 @@ angular.module('idxCtrls', ["services"])
 .controller('main',['$scope','$location',
 	function($scope,$location){
 	// in case user refreshes page at assay route.
-	if($location.path()=="/centerView")
-		$scope.view = "center";
-	else
+	if($location.path()=="/assayView")
 		$scope.view = "assay";
+	else
+		$scope.view = "center";
 	$scope.setView = function(view){
 		$scope.view = view;
 	}
