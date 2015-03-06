@@ -19,21 +19,24 @@
 }
 
  .title{
-  font-size: 3em;
-  /* font-weight: bold; */
-  text-align: left;
-  margin-left: 8%;
-  font-family: 'Open Sans';
+  font-size: 39px;
+/* font-weight: bold; */
+text-align: left;
+margin-left: 8%;
+padding-bottom: 9px;
+font-family: openSansLight;
  }
 
  .sub-title{
   font-size:0.3em;
   font-style: italic;
   vertical-align: 85%;
+  font-family: openSansLight;
  }
 
 /*button style*/
  a.btn-modern{
+  font-family: Helvetica;
   background-color: transparent;
   border-style: solid;
   border-radius: 0;
@@ -47,6 +50,7 @@
   padding-left: 12px;
   padding-right: 12px;
   text-decoration: none;
+  font-size:0.9em;
  }
 
 
@@ -87,10 +91,13 @@
   border-top-width: 10px;
   padding-bottom: 5px;
 
-  font-family: 'Open Sans';
-  font-weight: 300;
-  font-size: 2.12706rem;
+/*  font-family: 'Open Sans';
+  font-weight: bold;
+  font-size: 2.12706rem;*/
 
+  font-size: 18px;
+  color: rgba(50,50,50,0.8);
+  font-family: openSansSemiBold;
 }
 
 .group{
@@ -98,6 +105,33 @@
   margin:auto;
   /*display:inline-block;*/
   /*vertical-align:top*/
+}
+
+
+.genericCountViewLabel{
+  font-size: 17px;
+  fill: rgba(0,0,0,0.75);
+  font-family: openSansreg;
+}
+
+.genericCountViewCount{
+  font-family: openSansLight;
+  font-size: 37px;
+}
+
+@font-face{
+  font-family: 'openSansReg';
+  src:url('fonts/OpenSans-Regular.ttf');
+}
+
+@font-face{
+  font-family: 'openSansSemiBold';
+  src:url('fonts/OpenSans-Semibold.ttf');
+}
+
+@font-face{
+  font-family: 'openSansLight';
+  src:url('fonts/OpenSans-Light.ttf');
 }
 
 /*Start ng-animation on ng-repeat group class*/

@@ -4,11 +4,7 @@
     <title> </title>
     <link rel="shortcut icon" href="css/images/?.ico" type="image/x-icon">
     <!--style-->
-    <link rel="stylesheet" href="libraries/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="libraries/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="Barista/barista.main.min.css">
-    <link rel="stylesheet" href="libraries/normalize-css/normalize.css">
     <!-- libraries -->
     <script src="libraries/jquery/dist/jquery.min.js"></script>
     <script src="libraries/string/lib/string.min.js"></script>
@@ -27,7 +23,7 @@
   </head>
   <body ng-controller="main">
     <div class="top-bar">
-      <div class="title">Docent <span class="sub-title"> Show me guidance into LINCS.</span></div>
+      <div class="title">Docent <span class="sub-title"> An overview guide into LINCS data</span></div>
       <div><a href="#/centerView" ng-class="view=='center'?'btn-selected':''" ng-click="setView('center')" class="btn-modern">Center View</a><a href="#/assayView" ng-class="view=='assay'?'btn-selected':''" ng-click="setView('assay')" class="btn-modern btn-right">Assay View</a></div>
     </div>
     <div ng-view class="wrapper"></div>

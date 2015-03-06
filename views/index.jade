@@ -4,11 +4,11 @@ html(lang='en', ng-app='docent')
     title 
     link(rel='shortcut icon', href='css/images/?.ico', type='image/x-icon')
     //style
-    link(rel='stylesheet', href='libraries/font-awesome/css/font-awesome.min.css')
-    link(rel='stylesheet', type='text/css', href='libraries/bootstrap/dist/css/bootstrap.min.css')
+    //- link(rel='stylesheet', href='libraries/font-awesome/css/font-awesome.min.css')
+    //- link(rel='stylesheet', type='text/css', href='libraries/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='css/main.css')
-    link(rel='stylesheet', href='Barista/barista.main.min.css')
-    link(rel='stylesheet', href='libraries/normalize-css/normalize.css')     
+    //- link(rel='stylesheet', href='Barista/barista.main.min.css')
+    //- link(rel='stylesheet', href='libraries/normalize-css/normalize.css')     
      
     // libraries 
     script(src='libraries/jquery/dist/jquery.min.js')
@@ -35,7 +35,7 @@ html(lang='en', ng-app='docent')
     //-   button.btn(ng-click="removeItem()") remove a count
     .top-bar
       .title Docent 
-        span.sub-title  Show me guidance into LINCS.
+        span.sub-title  An overview guide into LINCS data
       div
         a.btn-modern(href="#/centerView" ng-class="view=='center'?'btn-selected':''" ng-click="setView('center')") Center View
         a.btn-modern.btn-right(href="#/assayView" ng-class="view=='assay'?'btn-selected':''" ng-click="setView('assay')") Assay View
