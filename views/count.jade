@@ -1,2 +1,4 @@
 h3.groupHeader(ng-style="{'border-color':group.color}"){{group.name}}
-div(ng-repeat="item in group.counts" generic-count) 
+.item(ng-repeat="item in group.counts")
+	.name {{item.name}}
+	.number(ng-style="{color: group.color}" count-to="{{item.count}}" format="comma" duration="1")

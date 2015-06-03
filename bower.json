@@ -17,7 +17,8 @@
     "angular-smart-table": "1.4.5",
     "angular-bootstrap-toggle-switch": "0.5.x",
     "packery":"latest",
-    "normalize-css":"3.0.2"
+    "normalize-css":"3.0.2",
+    "angular-count-to":"https://github.com/frlender/angular-count-to.git#master"
   },
   "resolutions": {
     "bootstrap": "~3.3.0"

@@ -1,0 +1,86 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@2.5.1
+3 info using node@v0.12.0
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json new@0.0.1 No repository field.
+6 verbose install where, deps [ 'C:\\Users\\Luke\\Documents\\nodejs_server\\Docent\\docent',
+6 verbose install   [ 'express',
+6 verbose install     'bower',
+6 verbose install     'request',
+6 verbose install     'mongoose',
+6 verbose install     'body-parser',
+6 verbose install     'jade',
+6 verbose install     'grunt',
+6 verbose install     'grunt-contrib-watch',
+6 verbose install     'grunt-jade',
+6 verbose install     'grunt-contrib-jade',
+6 verbose install     'grunt-express-server' ] ]
+7 verbose install where, peers [ 'C:\\Users\\Luke\\Documents\\nodejs_server\\Docent\\docent',
+7 verbose install   [] ]
+8 info preinstall new@0.0.1
+9 verbose already installed skipping jade@1.9.1 C:\Users\Luke\Documents\nodejs_server\Docent\docent
+10 verbose already installed skipping grunt@^0.4.5 C:\Users\Luke\Documents\nodejs_server\Docent\docent
+11 verbose already installed skipping grunt-contrib-watch@^0.6.1 C:\Users\Luke\Documents\nodejs_server\Docent\docent
+12 verbose already installed skipping grunt-jade@^0.5.1 C:\Users\Luke\Documents\nodejs_server\Docent\docent
+13 verbose already installed skipping grunt-contrib-jade@^0.14.1 C:\Users\Luke\Documents\nodejs_server\Docent\docent
+14 verbose already installed skipping grunt-express-server@^0.4.19 C:\Users\Luke\Documents\nodejs_server\Docent\docent
+15 verbose already installed skipping express@4.x C:\Users\Luke\Documents\nodejs_server\Docent\docent
+16 verbose already installed skipping bower@1.3.12 C:\Users\Luke\Documents\nodejs_server\Docent\docent
+17 verbose already installed skipping request@* C:\Users\Luke\Documents\nodejs_server\Docent\docent
+18 verbose already installed skipping mongoose@3.8.x C:\Users\Luke\Documents\nodejs_server\Docent\docent
+19 verbose already installed skipping body-parser@1.10.0 C:\Users\Luke\Documents\nodejs_server\Docent\docent
+20 silly install resolved []
+21 info build C:\Users\Luke\Documents\nodejs_server\Docent\docent
+22 verbose linkStuff [ false,
+22 verbose linkStuff   false,
+22 verbose linkStuff   false,
+22 verbose linkStuff   'C:\\Users\\Luke\\Documents\\nodejs_server\\Docent' ]
+23 info linkStuff new@0.0.1
+24 verbose linkBins new@0.0.1
+25 verbose linkMans new@0.0.1
+26 verbose rebuildBundles new@0.0.1
+27 verbose rebuildBundles [ '.bin',
+27 verbose rebuildBundles   'body-parser',
+27 verbose rebuildBundles   'bower',
+27 verbose rebuildBundles   'express',
+27 verbose rebuildBundles   'grunt',
+27 verbose rebuildBundles   'grunt-contrib-jade',
+27 verbose rebuildBundles   'grunt-contrib-watch',
+27 verbose rebuildBundles   'grunt-express-server',
+27 verbose rebuildBundles   'grunt-jade',
+27 verbose rebuildBundles   'jade',
+27 verbose rebuildBundles   'mongoose',
+27 verbose rebuildBundles   'request' ]
+28 info install new@0.0.1
+29 info postinstall new@0.0.1
+30 verbose unsafe-perm in lifecycle true
+31 info new@0.0.1 Failed to exec postinstall script
+32 verbose stack Error: new@0.0.1 postinstall: `bower install`
+32 verbose stack Exit status 1
+32 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:213:16)
+32 verbose stack     at EventEmitter.emit (events.js:110:17)
+32 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:14:12)
+32 verbose stack     at ChildProcess.emit (events.js:110:17)
+32 verbose stack     at maybeClose (child_process.js:1008:16)
+32 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1080:5)
+33 verbose pkgid new@0.0.1
+34 verbose cwd C:\Users\Luke\Documents\nodejs_server\Docent\docent
+35 error Windows_NT 6.1.7601
+36 error argv "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+37 error node v0.12.0
+38 error npm  v2.5.1
+39 error code ELIFECYCLE
+40 error new@0.0.1 postinstall: `bower install`
+40 error Exit status 1
+41 error Failed at the new@0.0.1 postinstall script 'bower install'.
+41 error This is most likely a problem with the new package,
+41 error not with npm itself.
+41 error Tell the author that this fails on your system:
+41 error     bower install
+41 error You can get their info via:
+41 error     npm owner ls new
+41 error There is likely additional logging output above.
+42 verbose exit [ 1, true ]
